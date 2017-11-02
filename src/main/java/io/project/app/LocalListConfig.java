@@ -1,11 +1,11 @@
 package io.project.app;
 
 import com.hazelcast.config.ListConfig;
-import static com.hazelcast.config.MapConfig.DEFAULT_TTL_SECONDS;
+
 
 public class LocalListConfig extends ListConfig {
 
-    private int timeToLiveSeconds = DEFAULT_TTL_SECONDS;
+    private int timeToLiveSeconds = 0;
 
     public LocalListConfig() {
     }

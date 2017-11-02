@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import io.project.model.Contact;
 import io.project.jparepositories.ContactRepository;
+import javax.persistence.Cacheable;
 import org.springframework.stereotype.Repository;
 
 @Repository("contactService")
@@ -27,11 +28,10 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
+   
     public List<Contact> findAll() {
         List<Contact> contactList = hazelcastService.list();
-        System.out.println("Find list in the cache!!!!!!");
-        
-         System.out.println("contactList " +contactList);
+        System.out.println("Find list in the cache!!!!!!");         
 
         if (contactList == null || contactList.isEmpty()) {
             System.out.println("Fetch Contact list from Database");

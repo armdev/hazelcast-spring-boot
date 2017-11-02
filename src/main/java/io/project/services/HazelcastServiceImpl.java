@@ -8,6 +8,7 @@ import io.project.model.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import javax.annotation.PreDestroy;
 import org.springframework.stereotype.Repository;
 
 @Repository("hazelcastService")
@@ -55,6 +56,7 @@ public class HazelcastServiceImpl implements HazelcastService {
         dataStore.clear();
     }
 
+    @PreDestroy
     public void shutDown() {
         hazelcastInstance.getLifecycleService().shutdown();
     }
