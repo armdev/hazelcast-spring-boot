@@ -33,7 +33,7 @@ public class ContactServiceImpl implements ContactService {
         
          System.out.println("contactList " +contactList);
 
-        if (contactList == null) {
+        if (contactList == null || contactList.isEmpty()) {
             System.out.println("Fetch Contact list from Database");
             contactList = contactRepository.findAll();
             hazelcastService.addList(contactList);
